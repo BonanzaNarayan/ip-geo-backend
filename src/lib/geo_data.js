@@ -45,11 +45,11 @@ function mergeGeoData(local, fallback) {
     zip:        fallback?.zip         || "",
 
     // ── Coordinates ───────────────────────────────────────────
-    ll:  local?.ll ?? (
-      fallback?.lat != null ? [fallback.lat, fallback.lon] : []
-    ),
-    lat: local?.ll?.[0]  ?? fallback?.lat ?? null,
-    lon: local?.ll?.[1]  ?? fallback?.lon ?? null,
+    lat: fallback?.lat ?? local?.ll?.[0] ?? null,
+    lon: fallback?.lon ?? local?.ll?.[1] ?? null,
+    ll:  fallback?.lat != null
+           ? [fallback.lat, fallback.lon]
+           : local?.ll ?? [],
 
     // ── Meta ──────────────────────────────────────────────────
     timezone: local?.timezone || fallback?.timezone || "",
