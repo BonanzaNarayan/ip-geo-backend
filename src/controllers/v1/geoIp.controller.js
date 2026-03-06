@@ -17,7 +17,7 @@ export async function getGeoIPController(req, res, next) {
         return res.status(400).json({ message: "Unable to determine client IP" });
       }
 
-      const geo = getIpGeo(ip);
+      const geo = await getIpGeo(ip);
       if (!geo) {
         return res.status(404).json({
           message: "No geolocation data found for IP",

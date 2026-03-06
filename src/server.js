@@ -1,7 +1,6 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import { isSpoofedBot } from "@arcjet/inspect";
 import V1router from "./routes/v1/geoip.route.js";
 
 dotenv.config();
